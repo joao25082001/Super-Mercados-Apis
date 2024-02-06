@@ -1,14 +1,9 @@
-package org.example.entity;
+package org.example.DTO.produto;
 
-import jakarta.persistence.*;
-import org.example.DTO.produto.ProdutoDTO;
-
-@Entity
-public class Produto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_produto")
-    private Long id;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.example.entity.SuperMercado;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class ProdutoDTO {
     private String nome;
     private String tipo;
     private String marca;
@@ -16,65 +11,54 @@ public class Produto {
     private Double valor;
     private Integer quantidadeUnidade;
     private Integer quantidade;
-    @ManyToOne
-    @JoinColumn(name = "id_super_mercado")
-    private SuperMercado idSupermercado;
 
-    protected Produto() {
+    private Long idSupermercado;
+
+    protected ProdutoDTO() {
     }
-    public static class ProdutoBuilder{
-        private Produto produto;
+    public static class ProdutoDTOBuilder{
+        private ProdutoDTO produtoDTO;
 
-        public ProdutoBuilder() {
-            produto = new Produto();
-
+        public ProdutoDTOBuilder() {
+            this.produtoDTO = new ProdutoDTO();
         }
-
-        public ProdutoBuilder nome(String nome){
-            produto.nome = nome;
+        public ProdutoDTOBuilder nome(String nome){
+            produtoDTO.nome = nome;
             return this;
         }
-        public ProdutoBuilder tipo(String tipo){
-            produto.tipo = tipo;
+        public ProdutoDTOBuilder tipo(String tipo){
+            produtoDTO.tipo = tipo;
             return this;
         }
-        public ProdutoBuilder marca(String marca){
-            produto.marca = marca;
+        public ProdutoDTOBuilder marca(String marca){
+            produtoDTO.marca = marca;
             return this;
         }
-        public ProdutoBuilder codigo(String codigo){
-            produto.codigo = codigo;
+        public ProdutoDTOBuilder codigo(String codigo){
+            produtoDTO.codigo = codigo;
             return this;
         }
-        public ProdutoBuilder valor(Double valor){
-            produto.valor = valor;
+        public ProdutoDTOBuilder valor(Double valor){
+            produtoDTO.valor = valor;
             return this;
         }
-        public ProdutoBuilder quantidadeUnidade(Integer quantidadeUnidade){
-            produto.quantidadeUnidade = quantidadeUnidade;
+        public ProdutoDTOBuilder quantidadeUnidade(Integer quantidadeUnidade){
+            produtoDTO.quantidadeUnidade = quantidadeUnidade;
             return this;
         }
 
-        public ProdutoBuilder quantidade(Integer quantidade) {
-            produto.quantidade = quantidade;
+        public ProdutoDTOBuilder quantidade(Integer quantidade) {
+            produtoDTO.quantidade = quantidade;
             return this;
         }
 
-        public ProdutoBuilder superMercado(SuperMercado superMercado) {
-            produto.idSupermercado = superMercado;
+        public ProdutoDTOBuilder superMercado(Long superMercado) {
+            produtoDTO.idSupermercado = superMercado;
             return this;
         }
-        public Produto build() {
-            return this.produto;
+        public ProdutoDTO build() {
+            return this.produtoDTO;
         }
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -100,6 +84,8 @@ public class Produto {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
+
 
     public String getCodigo() {
         return codigo;
@@ -133,11 +119,11 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public SuperMercado getIdSupermercado() {
+    public Long getIdSupermercado() {
         return idSupermercado;
     }
 
-    public void setIdSupermercado(SuperMercado idSupermercado) {
+    public void setIdSupermercado(Long idSupermercado) {
         this.idSupermercado = idSupermercado;
     }
 }
