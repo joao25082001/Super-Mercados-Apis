@@ -3,9 +3,10 @@ package org.example.enums;
 public enum TipoCaixa {
 
 
-    PREFERENCIAL("caixa preferencial"),
-    COMUM("caixa comumm"),
-    TOTEM("totem");
+    PREFERENCIAL("preferencial"),
+    COMUM("comumm"),
+    TOTEM("totem"),
+    RAPIDO("caixa_rapido");
     private String descricao;
 
     TipoCaixa(String descricao) {

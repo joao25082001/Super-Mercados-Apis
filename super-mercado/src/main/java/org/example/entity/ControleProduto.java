@@ -8,6 +8,7 @@ public class ControleProduto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_controle_produto")
     private Long id;
+    private String dataVencimento;
     @ManyToOne
     @JoinColumn(name = "id_lote")
     private Lote idLote;

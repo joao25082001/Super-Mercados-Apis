@@ -10,6 +10,7 @@ public class Funcionario {
     @Column(name = "id_funcionario")
     private Long id;
     private String cpf;
+    private String nome;
     private String numeroCarteira;
     @ManyToOne
     @JoinColumn(name = "id_super_mercado")

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Cliente {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long id;
     private String nome;

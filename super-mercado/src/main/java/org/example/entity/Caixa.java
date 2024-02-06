@@ -9,6 +9,8 @@ public class Caixa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer numero;
+
+    @Enumerated(EnumType.STRING)
     private TipoCaixa tipoCaixa;
     private Boolean status;
     @ManyToOne

@@ -8,6 +8,7 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_produto")
     private Long id;
+    private String nome;
     private String tipo;
     private String marca;
     private String codigo;
