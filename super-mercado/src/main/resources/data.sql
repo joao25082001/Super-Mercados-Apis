@@ -1,8 +1,8 @@
 INSERT INTO super_mercado (nome, cnpj, email)
 VALUES ('Supermercado A', '123456789', 'supermercadoa@example.com');
 
-INSERT INTO endereco (logradouro, cep, numero, uf, id_super_mercado)
-VALUES ('Rua Exemplo', '123', 12345,'SP', 1);
+INSERT INTO endereco (logradouro, cep, uf, id_super_mercado)
+VALUES ('Rua Exemplo', '123','SP', 1);
 
 
 INSERT INTO lote (data_compra, quantidade_recebida)
@@ -135,32 +135,19 @@ VALUES (4, 15, '2023-06-10');
 INSERT INTO controle_produto (id_lote, id_produto, data_vencimento)
 VALUES (5, 16, '2023-07-20');
 
-INSERT INTO cliente (nome)
-VALUES ('João');
-
-INSERT INTO cliente (nome)
-VALUES ('Maria');
-
-INSERT INTO cliente (nome)
-VALUES ('Pedro');
-
-INSERT INTO cliente (nome)
-VALUES ('Ana');
-
-INSERT INTO cliente (nome)
-VALUES ('Lucas');
+INSERT INTO cliente (nome, data_nascimento, cpf) VALUES
+('João da Silva', '1990-05-15', '12345678910'),
+('Maria Oliveira', '1985-09-20', '98765432100'),
+('Pedro Santos', '1978-03-10', '11122233344'),
+('Ana Souza', '2000-12-25', '55566677788'),
+('Lucas Pereira', '1992-07-07', '99988877766'),
+('Carla Silva', '1983-11-30', '44433322211'),
+('Paulo Oliveira', '1975-02-18', '77788899900'),
+('Fernanda Santos', '1998-08-05', '22211100099'),
+('Rafaela Lima', '1980-06-12', '66655544433'),
+('Gustavo Almeida', '1993-04-03', '88899900011');
 
 
-INSERT INTO cliente (nome, cpf)
-VALUES ('Carlos', '12345678901');
-
-INSERT INTO cliente (nome, cpf)
-VALUES ('Fernanda', '98765432109');
-
-INSERT INTO cliente (nome, cpf)
-VALUES ('Mariana', '51638756687');
-INSERT INTO cliente (nome, cpf)
-VALUES ('Rafael', '516383237');
 
 INSERT INTO funcionario (nome, cpf, numero_carteira, id_super_mercado)
 VALUES ('João Silva', '12345678901', 'CT123', 1);
