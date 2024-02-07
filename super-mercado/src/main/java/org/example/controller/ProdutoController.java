@@ -2,6 +2,7 @@ package org.example.controller;
 
 
 import org.example.DTO.produto.ProdutoDTO;
+import org.example.DTO.produto.RequestProdutoAtualizacao;
 import org.example.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,15 +26,15 @@ public class ProdutoController {
     public ResponseEntity<List<ProdutoDTO>> exibirUsuarios() {
         return ResponseEntity.ok().body(produtoService.exibiProduto());
     }
-  /*  @PutMapping("/atualizar/{id}")
+    @PutMapping("/atualizar/{id}")
     @Transactional
-    public ResponseEntity<RequestAtualizacao> atualizar(@PathVariable Long id, @RequestBody RequestAtualizacao request ) {
-        return ResponseEntity.ok().body(produtoService.atualizarUsuario(id,request));
+    public ResponseEntity<RequestProdutoAtualizacao> atualizar(@PathVariable Long id, @RequestBody RequestProdutoAtualizacao request ) {
+        return ResponseEntity.ok().body(produtoService.atualizaProduto(id,request));
     }
     @DeleteMapping("/deletar/{id}")
     @Transactional
     public ResponseEntity deletar(@PathVariable Long id) {
-        produtoService.deletarUsuario(id);
+        produtoService.deletarProduto(id);
         return ResponseEntity.ok().build();
-    }*/
+    }
 }

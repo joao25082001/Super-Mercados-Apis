@@ -2,6 +2,7 @@ package org.example.service;
 
 
 import org.example.DTO.produto.ProdutoDTO;
+import org.example.DTO.produto.RequestProdutoAtualizacao;
 import org.example.entity.Produto;
 import org.example.entity.SuperMercado;
 import org.example.exception.ExceptioNoContent;
@@ -13,12 +14,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 @Service
 public class ProdutoService {
     @Autowired
     ProdutoRepository repository;
     @Autowired
     SuperMercadoService superMercadoService;
+
     public ProdutoDTO cadastroProduto(ProdutoDTO request) {
         Optional<Produto> produtoExiste = verificaCodigo(request.getCodigo());
         SuperMercado mercado = superMercadoService.buscarSupermercadoId(request.getIdSupermercado());
@@ -65,6 +68,39 @@ public class ProdutoService {
                                 tipo(produto.getTipo()).
                                 quantidade(produto.getQuantidade()).
                                 build())
-                                .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
+
+    public RequestProdutoAtualizacao atualizaProduto(Long id, RequestProdutoAtualizacao request) {
+        Optional<Produto> produto = repository.findById(id);
+        if (produto.isEmpty()) {
+            throw new ExceptioNoContent("Cliente nao encontrado");
+        }
+        Produto valoresAtualizar = repository.getReferenceById(id);
+        Produto produtoAtualizado
+                = new Produto.ProdutoBuilder().nome(valoresAtualizar.getNome())
+                .id(valoresAtualizar.getId())
+                .codigo(valoresAtualizar.getCodigo())
+                .marca(valoresAtualizar.getMarca())
+                .tipo(valoresAtualizar.getTipo())
+                .superMercado(valoresAtualizar.getIdSupermercado()).build();
+
+
+        produtoAtualizado.setValor(request.getValor());
+        produtoAtualizado.setNome(request.getNome());
+        produtoAtualizado.setQuantidade(request.getQuantidade());
+        produtoAtualizado.setQuantidadeUnidade(request.getQuantidadeUnidade());
+        repository.save(produtoAtualizado);
+        return request;
+    }
+
+    public void deletarProduto(Long id) {
+        if (repository.findById(id).isPresent()) {
+            repository.deleteById(id);
+        }
+        throw new ExceptioNoContent("0 informações encontradas");
+
+    }
+
 }
+

@@ -29,6 +29,10 @@ public class Produto {
             produto = new Produto();
 
         }
+        public ProdutoBuilder id(Long id){
+            produto.id = id;
+            return this;
+        }
 
         public ProdutoBuilder nome(String nome){
             produto.nome = nome;
