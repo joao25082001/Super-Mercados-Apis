@@ -1,9 +1,8 @@
 package org.example.service;
 
-import org.example.DTO.Cliente.ClienteDTO;
-import org.example.DTO.Cliente.RequestAtualizacao;
+import org.example.DTO.cliente.ClienteDTO;
+import org.example.DTO.cliente.RequestAtualizacao;
 import org.example.entity.Cliente;
-import org.example.entity.Endereco;
 import org.example.exception.ExceptioNoContent;
 import org.example.exception.ExceptionConflict;
 import org.example.repository.ClienteRepository;

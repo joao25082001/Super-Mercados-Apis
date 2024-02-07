@@ -1,4 +1,4 @@
-package org.example.DTO.Cliente;
+package org.example.DTO.cliente;
 
 
 public class RequestAtualizacao {
