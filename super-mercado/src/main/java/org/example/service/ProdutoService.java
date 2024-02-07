@@ -3,6 +3,7 @@ package org.example.service;
 
 import org.example.DTO.produto.ProdutoDTO;
 import org.example.DTO.produto.RequestProdutoAtualizacao;
+import org.example.entity.Lote;
 import org.example.entity.Produto;
 import org.example.entity.SuperMercado;
 import org.example.exception.ExceptioNoContent;
@@ -11,6 +12,7 @@ import org.example.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -95,11 +97,17 @@ public class ProdutoService {
     }
 
     public void deletarProduto(Long id) {
-        if (repository.findById(id).isPresent()) {
-            repository.deleteById(id);
+        if (repository.findById(id).isEmpty()) {
+            throw new ExceptioNoContent("0 informações encontradas");
         }
-        throw new ExceptioNoContent("0 informações encontradas");
-
+        repository.deleteById(id);
+    }
+    public Produto buscarProdutoById(Long id){
+        Optional<Produto> Produto = repository.findById(id);
+        if(Produto.isPresent()){
+            return repository.getReferenceById(id);
+        }
+        throw  new ExceptionConflict("Produto cadastrado");
     }
 
 }

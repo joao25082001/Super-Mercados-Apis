@@ -2,6 +2,9 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import org.example.DTO.produto.ProdutoDTO;
+import org.hibernate.annotations.Cascade;
+
+import java.util.List;
 
 @Entity
 public class Produto {
@@ -19,6 +22,8 @@ public class Produto {
     @ManyToOne
     @JoinColumn(name = "id_super_mercado")
     private SuperMercado idSupermercado;
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private List<ControleProduto> controle;
 
     protected Produto() {
     }

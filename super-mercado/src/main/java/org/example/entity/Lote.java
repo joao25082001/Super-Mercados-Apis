@@ -2,6 +2,8 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Lote {
     @Id
@@ -10,6 +12,9 @@ public class Lote {
     private  Long id;
     private String dataCompra;
     private String quantidadeRecebida;
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private List<ControleProduto> controle;
+
 
     public Long getId() {
         return id;
