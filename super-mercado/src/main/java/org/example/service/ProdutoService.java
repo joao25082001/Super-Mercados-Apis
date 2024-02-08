@@ -107,7 +107,7 @@ public class ProdutoService {
         if(Produto.isPresent()){
             return repository.getReferenceById(id);
         }
-        throw  new ExceptionConflict("Produto cadastrado");
+        throw  new ExceptionConflict("Produto nao cadastrado");
     }
 
 }

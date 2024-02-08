@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.entity.SuperMercado;
+import org.example.exception.ExceptioNoContent;
 import org.example.exception.ExceptionConflict;
 import org.example.repository.SuperMercadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,6 @@ public class SuperMercadoService {
         if(superMercado.isPresent()){
             return repository.getReferenceById(id);
         }
-        throw  new ExceptionConflict("super Mercado nao existe");
+        throw  new ExceptioNoContent("super Mercado nao existe");
     }
 }

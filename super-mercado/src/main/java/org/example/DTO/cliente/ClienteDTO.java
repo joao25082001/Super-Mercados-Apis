@@ -9,26 +9,6 @@ public class ClienteDTO {
     private String cep;
     private String mensagem;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
     protected ClienteDTO() {
     }
     public static class ClienteDTObuilder{
@@ -58,5 +38,24 @@ public class ClienteDTO {
             return this.cliente;
 
         }
+    }
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public String getMensagem() {
+        return mensagem;
     }
 }
