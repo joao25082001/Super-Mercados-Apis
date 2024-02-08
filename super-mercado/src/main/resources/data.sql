@@ -162,17 +162,17 @@ INSERT INTO funcionario (nome, cpf, numero_carteira, id_super_mercado)
 VALUES ('Ana Costa', '78912345678', 'CT012', 1);
 
 INSERT INTO caixa (numero, id_super_mercado, tipo_caixa, status)
-VALUES ('1', 1, 'preferencial', 1);
+VALUES ('1', 1, 'PREFERENCIAL', 1);
 
 INSERT INTO caixa (numero, id_super_mercado, tipo_caixa, status)
-VALUES ('2', 1, 'caixa_rapido', 1);
+VALUES ('2', 1, 'RAPIDO', 1);
 
 
 INSERT INTO caixa (numero, id_super_mercado, tipo_caixa, status)
-VALUES ('3', 1, 'comum', 0);
+VALUES ('3', 1, 'COMUM', 0);
 
 INSERT INTO caixa (numero, id_super_mercado, tipo_caixa, status)
-VALUES ('4', 1, 'totem', 1);
+VALUES ('4', 1, 'TOTEM', 1);
 
 INSERT INTO jornada (id_funcionario, id_caixa, horario_abertura, horario_fechamento, valor_inicial, valor_final)
 VALUES (1, 1, '2023-06-01 09:00:00', '2023-06-01 18:00:00', 100.00, 150.00);
