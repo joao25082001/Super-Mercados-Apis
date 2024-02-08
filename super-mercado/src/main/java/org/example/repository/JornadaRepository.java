@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JornadaRepository  extends JpaRepository<Jornada,Long> {
+
+    Jornada getByFuncionarioId(Long id);
 }

@@ -1,7 +1,8 @@
 package org.example.service;
 
-import org.example.DTO.CaixaDTO;
+import org.example.DTO.caixa.CaixaDTO;
 import org.example.entity.Caixa;
+import org.example.entity.Lote;
 import org.example.entity.SuperMercado;
 import org.example.exception.ExceptionConflict;
 import org.example.repository.CaixaRepository;
@@ -36,5 +37,12 @@ public class CaixaService {
           return  "Caixa aberto";
         }
         return  "Caixa fechado";
+    }
+    public Caixa buscarCaixaByNumero(Integer id){
+        Optional<Caixa> caixa = repository.findByNumero(id);
+        if(caixa.isPresent()){
+            return caixa.get();
+        }
+        throw  new ExceptionConflict("O caixa não foi encontrado");
     }
 }

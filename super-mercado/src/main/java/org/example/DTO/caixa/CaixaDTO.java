@@ -1,12 +1,8 @@
-package org.example.DTO;
+package org.example.DTO.caixa;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import org.example.entity.SuperMercado;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.example.enums.TipoCaixa;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CaixaDTO {
     private Long id;
     private Integer numero;

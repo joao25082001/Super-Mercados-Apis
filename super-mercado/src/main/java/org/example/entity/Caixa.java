@@ -17,6 +17,7 @@ public class Caixa {
     @JoinColumn(name = "id_super_mercado")
     private SuperMercado idSupermercado;
 
+
     public Caixa() {
     }
 
@@ -34,6 +35,8 @@ public class Caixa {
         this.status = status;
         this.idSupermercado = idSupermercado;
     }
+
+
 
     public SuperMercado getIdSupermercado() {
         return idSupermercado;
