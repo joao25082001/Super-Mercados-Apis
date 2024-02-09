@@ -10,6 +10,7 @@ import org.example.repository.ControleProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +30,12 @@ public class ControleProdutoService {
         repository.save(controleProduto);
         return controleProduto;
     }
+    public ControleProduto buscaControleProdutoByCodigo(String request) {
+        Produto produto = produtoService.retornaByCodigo(request);
+        List<ControleProduto> controle = repository.findByIdProduto(produto);
+        return  controle.get(0);
+    }
+
 
 
 }

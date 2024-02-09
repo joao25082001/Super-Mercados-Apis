@@ -14,4 +14,28 @@ public class ItemVenda {
     @ManyToOne
     @JoinColumn(name = "id_venda")
     private Venda venda;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ControleProduto getControleProduto() {
+        return controleProduto;
+    }
+
+    public void setControleProduto(ControleProduto controleProduto) {
+        this.controleProduto = controleProduto;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
 }

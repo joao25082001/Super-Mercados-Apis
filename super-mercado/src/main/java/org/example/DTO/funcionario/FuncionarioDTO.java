@@ -1,4 +1,4 @@
-package org.example.DTO;
+package org.example.DTO.funcionario;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

@@ -8,9 +8,9 @@ import java.util.List;
 
 public class ItemVendaDTO {
     private Venda venda;
-    private List<ControleProduto> controleProduto;
+    private List<String> controleProduto;
 
-    public ItemVendaDTO(Venda venda, List<ControleProduto> controleProduto) {
+    public ItemVendaDTO(Venda venda, List<String> controleProduto) {
         this.venda = venda;
         this.controleProduto = controleProduto;
     }
@@ -23,11 +23,11 @@ public class ItemVendaDTO {
         this.venda = venda;
     }
 
-    public List<ControleProduto> getControleProduto() {
+    public List<String> getControleProduto() {
         return controleProduto;
     }
 
-    public void setControleProduto(List<ControleProduto> controleProduto) {
+    public void setControleProduto(List<String> controleProduto) {
         this.controleProduto = controleProduto;
     }
 }

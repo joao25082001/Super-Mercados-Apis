@@ -1,8 +1,6 @@
 package org.example.controller;
 
-import org.example.DTO.FuncionarioDTO;
-import org.example.DTO.cliente.ClienteDTO;
-import org.example.DTO.cliente.RequestAtualizacao;
+import org.example.DTO.funcionario.FuncionarioDTO;
 import org.example.entity.Funcionario;
 import org.example.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;

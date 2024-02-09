@@ -1,5 +1,7 @@
 INSERT INTO super_mercado (nome, cnpj, email)
 VALUES ('Supermercado A', '123456789', 'supermercadoa@example.com');
+INSERT INTO super_mercado (nome, cnpj, email)
+VALUES ('Supermercado B', '123453789', 'supermercadoB@example.com');
 
 INSERT INTO endereco (logradouro, cep, uf, id_super_mercado)
 VALUES ('Rua Exemplo', '123','SP', 1);
@@ -112,9 +114,6 @@ VALUES (NULL, 10, '2024-03-20');
 INSERT INTO controle_produto (id_lote, id_produto, data_vencimento)
 VALUES (NULL, 11, '2024-04-06');
 
-
-
-
 INSERT INTO controle_produto (id_lote, id_produto, data_vencimento)
 VALUES (1, 12, '2024-05-15');
 
@@ -124,8 +123,6 @@ VALUES (2, 13, '2024-06-25');
 
 INSERT INTO controle_produto (id_lote, id_produto, data_vencimento)
 VALUES (3, 14, '2024-07-30');
-
-
 
 
 INSERT INTO controle_produto (id_lote, id_produto, data_vencimento)

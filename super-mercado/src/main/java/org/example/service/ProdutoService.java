@@ -109,6 +109,13 @@ public class ProdutoService {
         }
         throw  new ExceptionConflict("Produto nao cadastrado");
     }
+    public Produto retornaByCodigo(String id){
+        Optional<Produto> produto = repository.findByCodigo(id);
+        if(produto.isPresent()){
+            return produto.get();
+        }
+        throw  new ExceptionConflict("Produto nao encontrado");
+    }
 
 }
 
