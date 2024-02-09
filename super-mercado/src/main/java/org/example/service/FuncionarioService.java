@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.DTO.FuncionarioDTO;
+import org.example.DTO.funcionario.FuncionarioDTO;
 import org.example.entity.Funcionario;
 import org.example.entity.SuperMercado;
 import org.example.exception.ExceptioNoContent;
@@ -9,12 +9,9 @@ import org.example.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 public class FuncionarioService {

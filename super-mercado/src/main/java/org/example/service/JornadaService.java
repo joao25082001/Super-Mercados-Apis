@@ -38,4 +38,12 @@ public class JornadaService {
         repository.save(jornada);
         return jornada;
     }
+
+    public Jornada buscaJornadaByCaixa(Integer caixa) {
+        Caixa caixa1 = caixaService.buscarCaixaByNumero(caixa);
+        if(!caixa1.getStatus()){
+            throw new ExceptionConflict("O caixa se enconta fechado, sem jornada no momento");
+        }
+       return repository.findTop1ByCaixaOrderByIdDesc(caixa1);
+    }
 }
