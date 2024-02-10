@@ -3,17 +3,17 @@ Uma API REST para controle de estoque e vendas de um supermercado, desenvolvida 
 
 # Motivação
 
-A motivação para iniciar este projeto veio de um desafio proposto pelo programa #AceleraDevs em que estou envolvido. 
-Nosso objetivo era desenvolver uma API RESTful que fornecesse funcionalidades essenciais
-para um controle de estoque.
+A motivação para iniciar este projeto veio de um desafio proposto pelo programa #AceleraDevs em que estou envolvido. <br>
+Nosso objetivo era desenvolver uma API RESTful que fornecesse funcionalidades essenciaispara um controle de estoque.
 
 #Requisitos:
+<br>
 Capacidade de ler dados de planilhas Excel e armazená-los no banco de dados.
 CRUD'S <br>
 
 
 Caso voce queira ver o desafio completo
-Antes de iniciar a aplicação, é necessário configurar o banco de dados. 
+Antes de iniciar a aplicação, é necessário configurar o banco de dados. <br>
 No arquivo application.properties, localizado em src/main/resources,
 insira o usuário, senha e nome do banco de dados local:
 
