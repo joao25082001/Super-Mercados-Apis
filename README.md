@@ -13,7 +13,7 @@ CRUD'S
 Caso voce queira ver o desafio completo
 Antes de iniciar a aplicação, é necessário configurar o banco de dados. 
 No arquivo application.properties, localizado em src/main/resources,
-insira o usuário, senha e nome do banco de dados local:]
+insira o usuário, senha e nome do banco de dados local:
 
 
 ![image](https://github.com/joao25082001/Super-Mercados-Apis/assets/114589490/596d600f-f324-4e2e-a92f-3aec3fa91acb)
