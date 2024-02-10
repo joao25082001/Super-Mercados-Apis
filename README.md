@@ -3,8 +3,10 @@ Uma API REST para controle de estoque e vendas de um supermercado, desenvolvida 
 
 # Motivação
 
-A motivação para iniciar este projeto veio de um desafio proposto pelo programa #AceleraDevs em que estou envolvido. Nosso objetivo era desenvolver uma API RESTful que fornecesse funcionalidades essenciais
-para um controle de estoque
+A motivação para iniciar este projeto veio de um desafio proposto pelo programa #AceleraDevs em que estou envolvido. 
+Nosso objetivo era desenvolver uma API RESTful que fornecesse funcionalidades essenciais
+para um controle de estoque.
+
 #Requisitos:
 Capacidade de ler dados de planilhas Excel e armazená-los no banco de dados.
 CRUD'S
