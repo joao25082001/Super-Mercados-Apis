@@ -3,7 +3,7 @@ package org.example.service;
 
 import org.example.DTO.produto.ProdutoDTO;
 import org.example.DTO.produto.RequestProdutoAtualizacao;
-import org.example.entity.Lote;
+
 import org.example.entity.Produto;
 import org.example.entity.SuperMercado;
 import org.example.exception.ExceptioNoContent;
@@ -12,7 +12,7 @@ import org.example.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLIntegrityConstraintViolationException;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,7 +24,7 @@ public class ProdutoService {
     @Autowired
     SuperMercadoService superMercadoService;
 
-    public ProdutoDTO cadastroProduto(ProdutoDTO request) {
+    public ProdutoDTO cadastroProduto(ProdutoDTO request)  {
         Optional<Produto> produtoExiste = verificaCodigo(request.getCodigo());
         SuperMercado mercado = superMercadoService.buscarSupermercadoId(request.getIdSupermercado());
         if (produtoExiste.isEmpty()) {
@@ -45,7 +45,7 @@ public class ProdutoService {
 
     }
 
-    private Optional<Produto> verificaCodigo(String codigo) {
+    private Optional<Produto> verificaCodigo(String codigo)  {
         Optional<Produto> produtoExiste = repository.findByCodigo(codigo);
         if (produtoExiste.isPresent()) {
             throw new ExceptionConflict("Produto já cadastrado");
@@ -102,19 +102,51 @@ public class ProdutoService {
         }
         repository.deleteById(id);
     }
-    public Produto buscarProdutoById(Long id){
+    public Produto buscarProdutoById(Long id)  {
         Optional<Produto> Produto = repository.findById(id);
         if(Produto.isPresent()){
             return repository.getReferenceById(id);
         }
         throw  new ExceptionConflict("Produto nao cadastrado");
     }
-    public Produto retornaByCodigo(String id){
+    public Produto retornaByCodigo(String id)  {
         Optional<Produto> produto = repository.findByCodigo(id);
         if(produto.isPresent()){
             return produto.get();
         }
         throw  new ExceptionConflict("Produto nao encontrado");
+    }
+
+    public void aumentaUnidade(Produto produto, Integer quantidaParaAumentar){
+        Produto produtoAtualizado
+                = new Produto.ProdutoBuilder().nome(produto.getNome())
+                .id(produto.getId())
+                .codigo(produto.getCodigo())
+                .marca(produto.getMarca())
+                .tipo(produto.getTipo())
+                .valor(produto.getValor())
+                .quantidade(produto.getQuantidade() + quantidaParaAumentar)
+                .quantidadeUnidade(produto.getQuantidadeUnidade())
+                .superMercado(produto.getIdSupermercado()).build();
+        repository.save(produtoAtualizado);
+
+    }
+    public void diminuiUnidade(Produto produto)  {
+        if(produto.getQuantidade() == 0){
+            throw new ExceptionConflict("Sem estoque");
+        }
+        Produto produtoAtualizado
+                = new Produto.ProdutoBuilder().nome(produto.getNome())
+                .id(produto.getId())
+                .codigo(produto.getCodigo())
+                .marca(produto.getMarca())
+                .tipo(produto.getTipo())
+                .valor(produto.getValor())
+                .quantidade(produto.getQuantidade() - 1)
+                .quantidadeUnidade(produto.getQuantidadeUnidade())
+                .superMercado(produto.getIdSupermercado()).build();
+        repository.save(produtoAtualizado);
+
     }
 
 }

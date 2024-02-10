@@ -24,6 +24,10 @@ public class JornadaService {
         if (!caixa.getStatus()){
             throw new ExceptionConflict("Não é possivel iniciar uma jornada de trabalho com o caixa fechado");
         }
+       Jornada permissaoAbertura = repository.findByCaixa(caixa);
+        if(permissaoAbertura != null && permissaoAbertura.getHorarioFechamento() == null){
+            throw new ExceptionConflict("Não é possivel iniciar uma jornada de trabalho sem terminar a anterior");
+        }
         Jornada jornada = new Jornada(request.getHorarioAbertura(),request.getValorInicial(),caixa,funcionario);
         repository.save(jornada);
         return jornada;

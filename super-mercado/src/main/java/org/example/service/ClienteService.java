@@ -41,7 +41,7 @@ public class ClienteService {
             return null;
     }
 
-    private Optional<Cliente> verificaCpf(String cpf) {
+    private Optional<Cliente> verificaCpf(String cpf)  {
         Optional<Cliente> clienteExiste = repository.findByCpf(cpf);
         if (clienteExiste.isPresent()) {
             throw new ExceptionConflict("CPF já cadastrado");

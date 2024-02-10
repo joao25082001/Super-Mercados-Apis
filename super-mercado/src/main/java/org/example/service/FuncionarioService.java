@@ -45,7 +45,7 @@ public class FuncionarioService {
     public void validaFuncExiste(String id) {
         Optional<Funcionario> funcionario = repository.findByCpf(id);
         if (funcionario.isPresent()) {
-            throw new ExceptionConflict("O funcionario não foi encontrado ja existe");
+            throw new ExceptionConflict("O funcionario  ja existe");
         }
     }
 

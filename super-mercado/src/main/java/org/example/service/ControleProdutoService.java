@@ -1,17 +1,17 @@
 package org.example.service;
 
 import org.example.DTO.controleProduto.ControleProdutoDTO;
-import org.example.DTO.produto.ProdutoDTO;
+
 import org.example.entity.ControleProduto;
 import org.example.entity.Lote;
 import org.example.entity.Produto;
-import org.example.entity.SuperMercado;
+
 import org.example.repository.ControleProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class ControleProdutoService {
@@ -28,6 +28,7 @@ public class ControleProdutoService {
         Lote lote = loteService.buscarLoteById(request.getIdLote());
         ControleProduto controleProduto = new ControleProduto(request.getDataVencimento(),lote,produto);
         repository.save(controleProduto);
+        produtoService.aumentaUnidade(produto,lote.getQuantidadeRecebida());
         return controleProduto;
     }
     public ControleProduto buscaControleProdutoByCodigo(String request) {

@@ -2,7 +2,7 @@ package org.example.service;
 
 import org.example.DTO.caixa.CaixaDTO;
 import org.example.entity.Caixa;
-import org.example.entity.Lote;
+
 import org.example.entity.SuperMercado;
 import org.example.exception.ExceptionConflict;
 import org.example.repository.CaixaRepository;
@@ -18,8 +18,12 @@ public class CaixaService {
     @Autowired
     SuperMercadoService superMercadoService;
 
-    public Caixa cadastrarCaixa(CaixaDTO request) {
+    public Caixa cadastrarCaixa(CaixaDTO request){
         SuperMercado superMercado = superMercadoService.buscarSupermercadoId(request.getIdSupermercado());
+        Optional<Caixa> c =repository.findByNumero(request.getNumero());
+        if (c.isPresent()){
+           throw  new ExceptionConflict("caixa já cadastrado");
+        }
         Caixa caixa = new Caixa(request.getNumero(), request.getTipoCaixa(),request.getStatus(),superMercado);
         repository.save(caixa);
         return caixa;
@@ -38,7 +42,7 @@ public class CaixaService {
         }
         return  "Caixa fechado";
     }
-    public Caixa buscarCaixaByNumero(Integer id){
+    public Caixa buscarCaixaByNumero(Integer id) {
         Optional<Caixa> caixa = repository.findByNumero(id);
         if(caixa.isPresent()){
             return caixa.get();

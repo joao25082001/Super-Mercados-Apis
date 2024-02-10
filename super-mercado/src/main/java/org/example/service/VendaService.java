@@ -21,7 +21,7 @@ public class VendaService {
     ClienteService serviceCliente;
     @Autowired
     JornadaService jornadaService;
-    public Venda verificaVendaExiste(Long id){
+    public Venda verificaVendaExiste(Long id) {
         Integer nmrVendas = repository.contaVendas(id);
         if(nmrVendas > 1){
             throw  new ExceptionConflict("mais de uma venda para o mesmo cliente, inicie outra venda");
@@ -33,12 +33,13 @@ public class VendaService {
         throw new ExceptioNoContent("Venda nao existe");
     }
 
-    public VendaDTO cadastraVenda(VendaDTO request) throws IOException {
+    public VendaDTO cadastraVenda(VendaDTO request) throws IOException{
         Cliente cliente = serviceCliente.buscaClienteByCpf(request.getCliente().getCpf());
         Jornada jornada = jornadaService.buscaJornadaByCaixa(request.getCaixa());
         if(cliente== null){
             serviceCliente.cadastroClienteSemCep(request.getCliente());
         }
+        cliente = serviceCliente.buscaClienteByCpf(request.getCliente().getCpf());
         Venda venda = new Venda(request.getDataHora(),cliente,jornada);
         repository.save(venda);
         return request;
