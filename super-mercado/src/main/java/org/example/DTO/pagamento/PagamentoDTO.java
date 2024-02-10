@@ -1,25 +1,29 @@
-package org.example.entity;
+package org.example.DTO.pagamento;
 
 import jakarta.persistence.*;
+import org.example.entity.Venda;
 
 import java.math.BigDecimal;
 
-@Entity
-public class Pagamento {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pagamento")
-    private Long id;
+public class PagamentoDTO {
+
     private String pagamento;
     private BigDecimal valorTotal;
-    @ManyToOne
-    @JoinColumn(name = "id_venda")
-    private Venda venda;
+    private Long venda;
+    private  String troco;
 
-    public Pagamento(String pagamento, BigDecimal valorTotal, Venda venda) {
+    public PagamentoDTO(String pagamento, BigDecimal valorTotal, Long venda) {
         this.pagamento = pagamento;
         this.valorTotal = valorTotal;
         this.venda = venda;
+    }
+
+    public String getTroco() {
+        return troco;
+    }
+
+    public void setTroco(String troco) {
+        this.troco = troco;
     }
 
     public String getPagamento() {
@@ -38,11 +42,11 @@ public class Pagamento {
         this.valorTotal = valorTotal;
     }
 
-    public Venda getVenda() {
+    public Long getVenda() {
         return venda;
     }
 
-    public void setVenda(Venda venda) {
+    public void setVenda(Long venda) {
         this.venda = venda;
     }
 }
