@@ -11,7 +11,7 @@ public class Lote {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String dataCompra;
-    private String quantidadeRecebida;
+    private Integer quantidadeRecebida;
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private List<ControleProduto> controle;
 
@@ -32,11 +32,11 @@ public class Lote {
         this.dataCompra = dataCompra;
     }
 
-    public String getQuantidadeRecebida() {
+    public Integer getQuantidadeRecebida() {
         return quantidadeRecebida;
     }
 
-    public void setQuantidadeRecebida(String quantidadeRecebida) {
+    public void setQuantidadeRecebida(Integer quantidadeRecebida) {
         this.quantidadeRecebida = quantidadeRecebida;
     }
 }

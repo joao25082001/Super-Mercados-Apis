@@ -16,12 +16,15 @@ public class ControleProduto {
     private Lote idLote;
     @ManyToOne
     @JoinColumn(name = "id_produto")
-    private Produto id_produto;
+    private Produto idProduto;
 
-    public ControleProduto(String dataVencimento, Lote idLote, Produto id_produto) {
+    public ControleProduto(String dataVencimento, Lote idLote, Produto idProduto) {
         this.dataVencimento = dataVencimento;
         this.idLote = idLote;
-        this.id_produto = id_produto;
+        this.idProduto = idProduto;
+    }
+
+    public ControleProduto() {
     }
 
     public Long getId() {
@@ -48,11 +51,11 @@ public class ControleProduto {
         this.idLote = idLote;
     }
 
-    public Produto getId_produto() {
-        return id_produto;
+    public Produto getIdProduto() {
+        return idProduto;
     }
 
-    public void setId_produto(Produto id_produto) {
-        this.id_produto = id_produto;
+    public void setIdProduto(Produto idProduto) {
+        this.idProduto = idProduto;
     }
 }

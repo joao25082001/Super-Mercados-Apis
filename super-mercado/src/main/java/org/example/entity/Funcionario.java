@@ -16,7 +16,8 @@ public class Funcionario {
     @JoinColumn(name = "id_super_mercado")
     private SuperMercado idSupermercado;
 
-    protected Funcionario() {
+
+    public Funcionario() {
 
     }
     @Override
@@ -40,6 +41,10 @@ public class Funcionario {
             funcionario.cpf = cpf;
             return this;
         }
+        public FuncionarioBuilder nome(String nome) {
+            funcionario.nome = nome;
+            return this;
+        }
 
         public FuncionarioBuilder carteiraTrabalho(String numeroCarteira) {
             funcionario.numeroCarteira = numeroCarteira;
@@ -52,8 +57,45 @@ public class Funcionario {
         }
 
         public Funcionario build() {
-            return funcionario;
+            return this.funcionario;
         }
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNumeroCarteira() {
+        return numeroCarteira;
+    }
+
+    public void setNumeroCarteira(String numeroCarteira) {
+        this.numeroCarteira = numeroCarteira;
+    }
+
+
+    public void setIdSupermercado(SuperMercado idSupermercado) {
+        this.idSupermercado = idSupermercado;
     }
 }

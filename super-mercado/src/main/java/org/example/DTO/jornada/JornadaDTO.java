@@ -1,43 +1,33 @@
-package org.example.entity;
+package org.example.DTO.jornada;
 
-import jakarta.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
-@Entity
-public class Jornada {
-    @Id
-    @Column(name = "id_jornada")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class JornadaDTO {
     private LocalDateTime horarioAbertura;
     private LocalDateTime horarioFechamento;
     private BigDecimal valorInicial;
     private BigDecimal valorFinal;
-    @ManyToOne
-    @JoinColumn(name = "id_caixa")
-    private Caixa caixa;
-    @ManyToOne
-    @JoinColumn(name = "id_funcionario")
-    private Funcionario funcionario;
+    private Integer caixa;
+    private String cpfFuncionario;
 
-    public Jornada(LocalDateTime horarioAbertura, BigDecimal valorInicial, Caixa caixa, Funcionario funcionario) {
+    public JornadaDTO() {
+    }
+
+    public JornadaDTO(LocalDateTime horarioAbertura, BigDecimal valorInicial, Integer caixa, String cpfFuncionario) {
         this.horarioAbertura = horarioAbertura;
         this.valorInicial = valorInicial;
         this.caixa = caixa;
-        this.funcionario = funcionario;
+        this.cpfFuncionario = cpfFuncionario;
     }
 
-    public Jornada() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public JornadaDTO(LocalDateTime horarioFechamento, BigDecimal valorFinal, Integer caixa) {
+        this.horarioFechamento = horarioFechamento;
+        this.valorFinal = valorFinal;
+        this.caixa = caixa;
     }
 
     public LocalDateTime getHorarioAbertura() {
@@ -72,19 +62,19 @@ public class Jornada {
         this.valorFinal = valorFinal;
     }
 
-    public Caixa getCaixa() {
+    public Integer getCaixa() {
         return caixa;
     }
 
-    public void setCaixa(Caixa caixa) {
+    public void setCaixa(Integer caixa) {
         this.caixa = caixa;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
+    public String getCpfFuncionario() {
+        return cpfFuncionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+    public void setCpfFuncionario(String cpfFuncionario) {
+        this.cpfFuncionario = cpfFuncionario;
     }
 }

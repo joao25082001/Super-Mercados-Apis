@@ -2,13 +2,16 @@ package org.example.DTO.produto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.example.entity.SuperMercado;
+
+import java.math.BigDecimal;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProdutoDTO {
     private String nome;
     private String tipo;
     private String marca;
     private String codigo;
-    private Double valor;
+    private BigDecimal valor;
     private Integer quantidadeUnidade;
     private Integer quantidade;
 
@@ -38,7 +41,7 @@ public class ProdutoDTO {
             produtoDTO.codigo = codigo;
             return this;
         }
-        public ProdutoDTOBuilder valor(Double valor){
+        public ProdutoDTOBuilder valor(BigDecimal valor){
             produtoDTO.valor = valor;
             return this;
         }
@@ -95,11 +98,11 @@ public class ProdutoDTO {
         this.codigo = codigo;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

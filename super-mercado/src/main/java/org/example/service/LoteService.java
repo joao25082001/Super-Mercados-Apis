@@ -1,7 +1,7 @@
 package org.example.service;
 
 import org.example.entity.Lote;
-import org.example.entity.SuperMercado;
+
 import org.example.exception.ExceptionConflict;
 import org.example.repository.LoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,7 +4,7 @@ public enum TipoCaixa {
 
 
     PREFERENCIAL("preferencial"),
-    COMUM("comumm"),
+    COMUM("comum"),
     TOTEM("totem"),
     RAPIDO("caixa_rapido");
     private String descricao;

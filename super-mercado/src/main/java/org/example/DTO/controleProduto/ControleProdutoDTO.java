@@ -1,6 +1,8 @@
 package org.example.DTO.controleProduto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ControleProdutoDTO {
     private Long id;
     private String dataVencimento;

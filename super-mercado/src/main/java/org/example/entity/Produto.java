@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.example.DTO.produto.ProdutoDTO;
 import org.hibernate.annotations.Cascade;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -16,7 +17,7 @@ public class Produto {
     private String tipo;
     private String marca;
     private String codigo;
-    private Double valor;
+    private BigDecimal valor;
     private Integer quantidadeUnidade;
     private Integer quantidade;
     @ManyToOne
@@ -55,7 +56,7 @@ public class Produto {
             produto.codigo = codigo;
             return this;
         }
-        public ProdutoBuilder valor(Double valor){
+        public ProdutoBuilder valor(BigDecimal valor){
             produto.valor = valor;
             return this;
         }
@@ -118,11 +119,11 @@ public class Produto {
         this.codigo = codigo;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

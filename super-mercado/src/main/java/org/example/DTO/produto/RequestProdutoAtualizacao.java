@@ -1,8 +1,10 @@
 package org.example.DTO.produto;
 
+import java.math.BigDecimal;
+
 public class RequestProdutoAtualizacao {
     private String nome;
-    private Double valor;
+    private BigDecimal valor;
     private Integer quantidadeUnidade;
     private Integer quantidade;
 
@@ -19,7 +21,7 @@ public class RequestProdutoAtualizacao {
             produtoDTO.nome = nome;
             return this;
         }
-        public RequestProdutoAtualizacao.RequestProdutoAtualizacaoBuilder valor(Double valor){
+        public RequestProdutoAtualizacao.RequestProdutoAtualizacaoBuilder valor(BigDecimal valor){
             produtoDTO.valor = valor;
             return this;
         }
@@ -46,11 +48,11 @@ public class RequestProdutoAtualizacao {
         this.nome = nome;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

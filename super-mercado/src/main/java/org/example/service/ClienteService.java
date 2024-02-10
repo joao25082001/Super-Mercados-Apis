@@ -32,8 +32,16 @@ public class ClienteService {
         throw new ExceptionConflict("CPF já cadastrado");
 
     }
+    public ClienteDTO cadastroClienteSemCep(Cliente cliente) throws IOException {
+        Optional<Cliente> clienteExiste = verificaCpf(cliente.getCpf());
+        if (clienteExiste.isEmpty()) {
+            repository.save(cliente);
+            return new ClienteDTO.ClienteDTObuilder().mensagem("Usuario cadastrado").nome(cliente.getNome()).build();
+        }
+            return null;
+    }
 
-    private Optional<Cliente> verificaCpf(String cpf) {
+    private Optional<Cliente> verificaCpf(String cpf)  {
         Optional<Cliente> clienteExiste = repository.findByCpf(cpf);
         if (clienteExiste.isPresent()) {
             throw new ExceptionConflict("CPF já cadastrado");
@@ -81,6 +89,14 @@ public class ClienteService {
         Cliente clienteAdeletar = repository.getReferenceById(id);
         repository.delete(clienteAdeletar);
 
+    }
+
+    public Cliente buscaClienteByCpf(String cpf) {
+        Optional<Cliente> cliente = repository.findByCpf(cpf);
+        if (cliente.isPresent()) {
+            return cliente.get();
+        }
+        return null;
     }
 }
 
