@@ -2,6 +2,7 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 @Entity
 public class NotaFiscal {
@@ -11,7 +12,7 @@ public class NotaFiscal {
     private Long id;
     private String codNota;
     private LocalDate emissao;
-    private Double valorTotal;
+    private BigDecimal valorTotal;
     @ManyToOne
     @JoinColumn(name = "id_jornada")
     private Jornada jornada;
