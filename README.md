@@ -9,7 +9,9 @@ para um controle de estoque.
 
 #Requisitos:
 Capacidade de ler dados de planilhas Excel e armazená-los no banco de dados.
-CRUD'S
+CRUD'S <br>
+
+
 Caso voce queira ver o desafio completo
 Antes de iniciar a aplicação, é necessário configurar o banco de dados. 
 No arquivo application.properties, localizado em src/main/resources,
