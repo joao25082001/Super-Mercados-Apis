@@ -1,10 +1,9 @@
 package org.example.DTO.venda;
 
-import jakarta.persistence.*;
-import org.example.entity.Cliente;
-import org.example.entity.Jornada;
+
 import org.example.entity.Produto;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class ItensRetornoVendaDTO {
@@ -17,12 +16,21 @@ public class ItensRetornoVendaDTO {
     private String jornada;
 
     List<Produto> produtos;
+    private BigDecimal valorTotal;
 
-    public ItensRetornoVendaDTO(String dataHora, String cliente, String jornada, List<Produto> produtos) {
+    public ItensRetornoVendaDTO(String dataHora, String jornada, List<Produto> produtos, BigDecimal valorTotal) {
         this.dataHora = dataHora;
-        this.cliente = cliente;
         this.jornada = jornada;
         this.produtos = produtos;
+        this.valorTotal = valorTotal;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
     public String getDataHora() {
