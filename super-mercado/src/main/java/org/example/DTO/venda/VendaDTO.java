@@ -7,7 +7,6 @@ import org.example.entity.Jornada;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VendaDTO {
 
-    private Long id;
     private String dataHora;
 
     private Cliente cliente;
@@ -15,14 +14,6 @@ public class VendaDTO {
     private Integer caixa;
 
     public VendaDTO() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getDataHora() {

@@ -32,6 +32,7 @@ public class ProdutoService {
                     nome(request.getNome()).
                     codigo(request.getCodigo()).
                     marca(request.getMarca()).
+                    quantidade(request.getQuantidade()).
                     quantidadeUnidade(request.getQuantidadeUnidade()).
                     superMercado(mercado).
                     valor(request.getValor()).

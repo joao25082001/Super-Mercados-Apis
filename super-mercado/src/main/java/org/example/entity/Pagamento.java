@@ -22,6 +22,9 @@ public class Pagamento {
         this.venda = venda;
     }
 
+    public Pagamento() {
+    }
+
     public String getPagamento() {
         return pagamento;
     }

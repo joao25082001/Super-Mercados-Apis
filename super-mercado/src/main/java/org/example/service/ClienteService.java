@@ -1,10 +1,14 @@
 package org.example.service;
 
 import org.example.DTO.cliente.ClienteDTO;
+import org.example.DTO.cliente.RelatorioClienteDTO;
 import org.example.DTO.cliente.RequestAtualizacao;
+import org.example.DTO.produto.ProdutoDTO;
 import org.example.entity.Cliente;
+import org.example.entity.Endereco;
 import org.example.exception.ExceptioNoContent;
 import org.example.exception.ExceptionConflict;
+import org.example.projection.ProjectionRelatorioCliente;
 import org.example.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,22 +30,22 @@ public class ClienteService {
         if (clienteExiste.isEmpty()) {
             Cliente cliente = new Cliente.Clientebuilder().nome(nome).dataNascimento(dataNascimento).cpf(cpf).build();
             repository.save(cliente);
-            enderecoService.ObtendoInformacoesEndereco(cep,cliente);
+            enderecoService.ObtendoInformacoesEndereco(cep, cliente);
             return new ClienteDTO.ClienteDTObuilder().mensagem("Usuario cadastrado").nome(nome).build();
         }
         throw new ExceptionConflict("CPF já cadastrado");
-
     }
+
     public ClienteDTO cadastroClienteSemCep(Cliente cliente) throws IOException {
         Optional<Cliente> clienteExiste = verificaCpf(cliente.getCpf());
         if (clienteExiste.isEmpty()) {
             repository.save(cliente);
             return new ClienteDTO.ClienteDTObuilder().mensagem("Usuario cadastrado").nome(cliente.getNome()).build();
         }
-            return null;
+        return null;
     }
 
-    private Optional<Cliente> verificaCpf(String cpf)  {
+    private Optional<Cliente> verificaCpf(String cpf) {
         Optional<Cliente> clienteExiste = repository.findByCpf(cpf);
         if (clienteExiste.isPresent()) {
             throw new ExceptionConflict("CPF já cadastrado");
@@ -97,6 +101,40 @@ public class ClienteService {
             return cliente.get();
         }
         return null;
+    }
+    public void clienteCpf(String cpf) {
+        Optional<Cliente> cliente = repository.findByCpf(cpf);
+        if (cliente.isPresent()) {
+            return;
+        }
+        throw new ExceptioNoContent("Cliente não encontrado");
+    }
+
+    public List<RelatorioClienteDTO> exibirRelatorio(String cpf) {
+        clienteCpf(cpf);
+        List<ProjectionRelatorioCliente> resultado = repository.buscaInfoRelatorioCliente(cpf);
+
+        return resultado.stream()
+                .map(relatorio ->
+                        new RelatorioClienteDTO(
+                                new ProdutoDTO.ProdutoDTOBuilder()
+                                        .nome(relatorio.getProdutoNome())
+                                        .codigo(relatorio.getCodigo())
+                                        .build(),
+                                new Cliente.Clientebuilder()
+                                        .nome(relatorio.getNome())
+                                        .cpf(relatorio.getCpf())
+                                        .dataNascimento(relatorio.getData_Nascimento())
+                                        .build(),
+                                new Endereco.EnderecoBuild()
+                                        .cep(relatorio.getCep())
+                                        .uf(relatorio.getUf())
+                                        .logradouro(relatorio.getLogradouro())
+                                        .build(), relatorio.getCompraDia()
+                        )
+                )
+                .collect(Collectors.toList());
+
     }
 }
 

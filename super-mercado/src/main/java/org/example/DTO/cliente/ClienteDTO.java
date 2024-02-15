@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ClienteDTO {
     private String nome;
+
     private String cpf;
     private String dataNascimento;
     private String cep;

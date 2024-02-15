@@ -1,8 +1,10 @@
 package org.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,24 +90,24 @@ public class Endereco {
         }
 
         public EnderecoBuild() {
-
+            this.endereco = new Endereco();
         }
 
-        public Endereco cep(String cep){
+        public Endereco.EnderecoBuild cep(String cep){
             endereco.cep = cep;
-            return endereco;
+            return this;
         }
-        public Endereco uf(String  uf){
+        public Endereco.EnderecoBuild uf(String  uf){
             endereco.uf = uf;
-            return endereco;
+            return this;
         }
-        public Endereco logradouro(String logradouro){
+        public Endereco.EnderecoBuild logradouro(String logradouro){
             endereco.logradouro = logradouro;
-            return endereco;
+            return this;
         }
-        public Endereco idSupermercado(SuperMercado idSupermercado){
+        public Endereco.EnderecoBuild idSupermercado(SuperMercado idSupermercado){
             endereco.idSupermercado = idSupermercado;
-            return endereco;
+            return this;
         }
         public Endereco build() {
             return endereco;

@@ -1,0 +1,681 @@
+{
+	"info": {
+		"_postman_id": "a7835691-d514-4625-bacf-6d2c2d8df5d4",
+		"name": "ACELERA DEVS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29280687"
+	},
+	"item": [
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "cadastrarCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"aquiles\",\r\n  \"dataNascimento\": \"1991-01-01\",\r\n  \"cpf\": \"51437608820\",\r\n  \"cep\": \"08441520\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/cliente/cadastrar",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"cliente",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exibirCLientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/cliente/exibir",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"cliente",
+								"exibir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualiza",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"aquiles\",\r\n  \"dataNascimento\": \"1990-01-02\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/cliente/atualizar/11",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"cliente",
+								"atualizar",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/cliente/deletar/5",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"cliente",
+								"deletar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "relatorioCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/cliente/relatorioVendas?cpf=51437608820",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"cliente",
+								"relatorioVendas"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "51437608820"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lote",
+			"item": [
+				{
+					"name": "entrada de lote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dataCompra\": \"2024-02-06\",\r\n    \"quantidadeRecebida\": \"200\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/lote/cadastro",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"lote",
+								"cadastro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "cadastrar produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"feijaoRosa Integral\",\r\n  \"tipo\": \"Alimento\",\r\n  \"marca\": \"Tio João\",\r\n  \"codigo\": \"ACS\",\r\n  \"valor\": 5.99,\r\n  \"quantidadeUnidade\": 3,\r\n  \"idSupermercado\":1,\r\n  \"quantidade\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/produto/cadastrar",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"produto",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "exibirProdutos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/produto/exibir",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"produto",
+								"exibir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/produto/deletar/17",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"produto",
+								"deletar",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualiza",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Long\",\r\n  \"valor\": 29.99,\r\n  \"quantidadeUnidade\": 9,\r\n  \"quantidade\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/produto/atualizar/11",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"produto",
+								"atualizar",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "controle produto",
+			"item": [
+				{
+					"name": "adicionaEstoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataVencimento\": \"2024-02-28\",\r\n  \"idLote\": 6,\r\n  \"id_produto\": 12\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/controle/cadastrar",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"controle",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "caixa",
+			"item": [
+				{
+					"name": "criarCaixa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numero\": 111,\r\n  \"tipoCaixa\": \"PREFERENCIAL\",\r\n  \"status\": true,\r\n  \"idSupermercado\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/caixa/cadastrar",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"caixa",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "abre ou fecha caixa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/caixa/atualizarCaixa?statusFuncionamento=true&numeroCaixa=111",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"caixa",
+								"atualizarCaixa"
+							],
+							"query": [
+								{
+									"key": "statusFuncionamento",
+									"value": "true"
+								},
+								{
+									"key": "numeroCaixa",
+									"value": "111"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "funcionario",
+			"item": [
+				{
+					"name": "adiciona um funcionario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cpf\": \"514376088-75\",\r\n  \"nome\": \"rogerio\",\r\n  \"numeroCarteira\": \"ABC123\",\r\n  \"idSupermercado\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/funcionario/cadastrar",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"funcionario",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleta funcionario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/funcionario/deletar/51437608876",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"funcionario",
+								"deletar",
+								"51437608876"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mostra funcionario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/funcionario/exibir",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"funcionario",
+								"exibir"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jornada de trabalho",
+			"item": [
+				{
+					"name": "inicia jornada de trabalho",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n  \"horarioAbertura\": \"2024-03-06T08:00:00\",\r\n  \"valorInicial\": 100.00,\r\n  \"caixa\": 111,\r\n  \"cpfFuncionario\": \"514376088-75\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/jornada/cadastrar",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"jornada",
+								"cadastrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acaba jornada",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"horarioFechamento\": \"2024-02-05T14:00:00\",\r\n  \"valorFinal\": 900.00,\r\n  \"caixa\": 111\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/jornada/atualizarJornada/51437608816",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"jornada",
+								"atualizarJornada",
+								"51437608816"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "venda",
+			"item": [
+				{
+					"name": "começarVenda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dataHora\": \"2024-04-08T12:00:00\",\r\n    \"caixa\": 111,\r\n    \"cliente\": {\r\n    \"cpf\": \"51437608821\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/venda",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"venda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "relatorioMes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/venda?mesAno=04/2024",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"venda"
+							],
+							"query": [
+								{
+									"key": "mesAno",
+									"value": "04/2024"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "item da venda",
+			"item": [
+				{
+					"name": "cadastrar Produtos Para Venda Excel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "excel",
+									"type": "file",
+									"src": "/C:/Users/jvtenorio/Downloads/Super-Mercados-Apis/super-mercado/planilhaVendas.xlsx"
+								},
+								{
+									"key": "idVenda",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/item/cadastrarVendaPorArquivo",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"item",
+								"cadastrarVendaPorArquivo"
+							],
+							"query": [
+								{
+									"key": "idVenda",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrar carrinho de venda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"venda\": {\r\n    \"id\": 2\r\n  },\r\n  \"controleProduto\": [\r\n  \r\n    \"FEI456\",\r\n     \"FEI456\",\r\n      \"FEI456\",\r\n       \"FEI456\",\r\n        \"FEI456\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/item",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "pagar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"pagamento\":\"debito\",\r\n    \"valorTotal\":1500.0,\r\n    \"venda\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localHostAcelera}}/pagamento",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"pagamento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "swagger",
+			"item": [
+				{
+					"name": "swagger",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localHostAcelera}}/context-path/swagger-ui.html",
+							"host": [
+								"{{localHostAcelera}}"
+							],
+							"path": [
+								"context-path",
+								"swagger-ui.html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
