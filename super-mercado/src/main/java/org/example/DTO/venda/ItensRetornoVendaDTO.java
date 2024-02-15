@@ -25,6 +25,14 @@ public class ItensRetornoVendaDTO {
         this.valorTotal = valorTotal;
     }
 
+    public ItensRetornoVendaDTO(String dataHora, String cliente, String jornada, List<Produto> produtos, BigDecimal valorTotal) {
+        this.dataHora = dataHora;
+        this.cliente = cliente;
+        this.jornada = jornada;
+        this.produtos = produtos;
+        this.valorTotal = valorTotal;
+    }
+
     public BigDecimal getValorTotal() {
         return valorTotal;
     }

@@ -6,6 +6,7 @@ import org.example.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class ClienteController {
     ClienteService clienteService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<ClienteDTO> cadastrarCliente(@RequestBody ClienteDTO request) throws IOException {
+    public ResponseEntity<ClienteDTO> cadastrarCliente(@RequestBody @Validated ClienteDTO request) throws IOException {
         return ResponseEntity.ok().body(clienteService.cadastroCliente(request.getNome(), request.getDataNascimento(), request.getCpf(), request.getCep()));
     }
 
@@ -26,6 +27,12 @@ public class ClienteController {
     public ResponseEntity<List<ClienteDTO>> exibirUsuarios() {
         return ResponseEntity.ok().body(clienteService.exibirUsuario());
     }
+
+    @GetMapping("/relatorioVendas")
+    public ResponseEntity<?> relatorio(@RequestParam String cpf) {
+        return ResponseEntity.ok().body(clienteService.exibirRelatorio(cpf));
+    }
+
     @PutMapping("/atualizar/{id}")
     @Transactional
     public ResponseEntity<RequestAtualizacao> atualizar(@PathVariable Long id,@RequestBody RequestAtualizacao request ) {

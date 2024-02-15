@@ -37,5 +37,7 @@ public class SuperMercado {
 
     }
 
-
+    public String getEmail() {
+        return email;
+    }
 }

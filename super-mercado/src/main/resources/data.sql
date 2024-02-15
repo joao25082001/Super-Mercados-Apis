@@ -1,5 +1,5 @@
 INSERT INTO super_mercado (nome, cnpj, email)
-VALUES ('Supermercado A', '123456789', 'supermercadoa@example.com');
+VALUES ('Supermercado A', '123456789', 'jonhvector0111@gmail.com');
 INSERT INTO super_mercado (nome, cnpj, email)
 VALUES ('Supermercado B', '123453789', 'supermercadoB@example.com');
 

@@ -1,5 +1,6 @@
 package org.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import org.example.DTO.produto.ProdutoDTO;
 import org.hibernate.annotations.Cascade;
@@ -8,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
