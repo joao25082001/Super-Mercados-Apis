@@ -32,12 +32,6 @@ A documentação da API está disponível em /swagger-ui.html. Após iniciar a a
 
 ![image](https://github.com/joao25082001/Super-Mercados-Apis/assets/114589490/3831ae2f-8a21-454c-9211-08b13102ed4a)
 
-
-Modelagem de dados:<br>
-
-![aceleraModelagem](https://github.com/joao25082001/Super-Mercados-Apis/assets/114589490/565a2ae3-e10f-4529-a202-7f274edfc65f)
-
-
 Boas Práticas de Código
 Este projeto segue as boas práticas de código, incluindo o padrão de projeto Builder para construção de objetos complexos.
 
